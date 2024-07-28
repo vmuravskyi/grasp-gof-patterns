@@ -1,0 +1,11 @@
+1. factory method
+2. abstract factory
+
+3. adapter
+4. proxy
+5. decorator
+
+6. composite
+7. observer (listener)
+8. strategy
+9. template method
