@@ -1,19 +1,19 @@
 package gof.design.patterns.grasp.controller;
 
-public class Worker {
+public class Worker implements Runnable {
 
-    public void work() {
-        System.out.println(Thread.currentThread().getName() + " is working.");
-        Task1 task1 = new Task1();
-        Task2 task2 = new Task2();
+    public void run() {
         try {
-            task1.execute();
-            task2.execute();
+            String threadName = Thread.currentThread().getName();
+            System.out.println(threadName + " is executing Task1.");
+            Thread.sleep(2000); // Simulate work with a 2-second delay
+            System.out.println(threadName + " finishing Task1.");
+            System.out.println(threadName + " is executing Task2.");
+            Thread.sleep(2000); // Simulate work with another 2-second delay
+            System.out.println(threadName + " finishing Task2.");
         } catch (InterruptedException e) {
-            throw new RuntimeException(e);
+            Thread.currentThread().interrupt();
         }
-
-        // Add more tasks as needed
     }
 
 }

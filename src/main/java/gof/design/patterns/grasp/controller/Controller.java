@@ -1,51 +1,47 @@
 package gof.design.patterns.grasp.controller;
 
-import java.util.concurrent.*;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Semaphore;
 
 public class Controller {
 
-    private final BlockingQueue<Integer> pool;
-    private final ThreadPoolExecutor executor;
+    private final ExecutorService executorService;
+    private final Semaphore semaphore;
 
-    public Controller(int threadPool) {
-        this.pool = new ArrayBlockingQueue<>(threadPool);
-        this.executor = new ThreadPoolExecutor(
-                threadPool,         // core pool size
-                threadPool,         // maximum pool size
-                0L, TimeUnit.MILLISECONDS,   // keep-alive time
-                new LinkedBlockingQueue<>()   // task queue
-        );
-
-        // Pre-fill the pool with available permits
-        for (int i = 0; i < threadPool; i++) {
-            pool.add(i);
-        }
+    public Controller(int threadPoolSize) {
+        // Create a thread pool with the given size
+        this.executorService = Executors.newFixedThreadPool(threadPoolSize);
+        // Initialize semaphore with the same number of permits as the thread pool size
+        this.semaphore = new Semaphore(threadPoolSize);
     }
 
     public void process() {
+        long before = System.currentTimeMillis();
         try {
-            // Take a permit from the pool, blocking if none are available
-            pool.take();
-            executor.submit(() -> {
+            // Acquire a permit, blocking if necessary until one is available
+            semaphore.acquire();
+
+            // Submit a new task to the executor service
+            executorService.submit(() -> {
                 try {
-                    new WorkerThread().run();
+                    // Run the worker logic
+                    Worker worker = new Worker();
+                    worker.run();
                 } finally {
-                    // Return the permit to the pool after the task is done
-                    try {
-                        pool.put(1);
-                    } catch (InterruptedException e) {
-                        throw new RuntimeException(e);
-                    }
+                    // Release the permit after the task is completed
+                    semaphore.release();
                 }
             });
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
-            throw new RuntimeException(e);
         }
+        long after = System.currentTimeMillis();
+        System.out.println("process took: " + (after - before));
     }
 
     public void shutdown() {
-        executor.shutdown();
+        executorService.shutdown();
     }
 
 }

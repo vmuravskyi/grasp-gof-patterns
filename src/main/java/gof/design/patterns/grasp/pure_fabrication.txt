@@ -4,3 +4,5 @@ specially made up to achieve low coupling, high cohesion, and the reuse potentia
 This kind of class is called a "service" in domain-driven design.
 
 Related Patterns and Principles • Low Coupling. • High Cohesion.
+
+As example - facade. It does not exist in real world and does not represent a real world entity.

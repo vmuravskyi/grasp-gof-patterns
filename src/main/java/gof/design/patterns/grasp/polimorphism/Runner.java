@@ -4,10 +4,8 @@ public class Runner {
 
     public static void main(String[] args) {
 
-//        IShape object = new Circle();
-        IShape object = new Square();
-
         IShape shape = new Circle();
+//        IShape shape = new Square();
 
         drawShape(shape);
     }

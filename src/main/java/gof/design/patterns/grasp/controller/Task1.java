@@ -5,7 +5,6 @@ public class Task1 {
     public void execute() throws InterruptedException {
         System.out.println(Thread.currentThread().getName() + " is executing Task1.");
         // Task1 logic here
-        Thread.sleep(2000);
         System.out.println(Thread.currentThread().getName() + " finishing Task1.");
     }
 

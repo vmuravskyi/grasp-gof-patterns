@@ -14,6 +14,12 @@ public class Runner {
 
         // This call should block until at least one thread becomes available
         controller.process();
+        controller.process();
+        controller.process();
+        controller.process();
+        controller.process();
+        controller.process();
+
 
         controller.shutdown();
     }

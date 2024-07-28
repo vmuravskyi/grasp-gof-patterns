@@ -6,3 +6,5 @@ Problem: How to handle alternatives based on type? How to create pluggable softw
 Solution: When related alternatives or behaviors vary by type (class), assign responsibility for the behavior—using
 polymorphic operations—to the types for which the behavior varies. (Polymorphism has several related meanings.
 In this context, it means "giving the same name to services in different objects".)
+
+Current implementation is also an implementation of Template Method pattern.
