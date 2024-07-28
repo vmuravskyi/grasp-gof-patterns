@@ -13,7 +13,7 @@ public class Controller {
                 threadPool,         // core pool size
                 threadPool,         // maximum pool size
                 0L, TimeUnit.MILLISECONDS,   // keep-alive time
-                new LinkedBlockingQueue<Runnable>()   // task queue
+                new LinkedBlockingQueue<>()   // task queue
         );
 
         // Pre-fill the pool with available permits
