@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import static junit.framework.Assert.assertEquals;
 
-public class UkrainianFactoryProducerTest {
+class UkrainianFactoryProducerTest {
 
     @Test
     void shouldCreateUkrainianComboMeal() {
