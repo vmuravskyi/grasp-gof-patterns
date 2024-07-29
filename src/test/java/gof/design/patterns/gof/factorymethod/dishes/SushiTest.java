@@ -1,15 +1,16 @@
 package gof.design.patterns.gof.factorymethod.dishes;
 
-import org.junit.jupiter.api.Test;
+
+import org.junit.Test;
 
 import java.time.LocalDateTime;
 
 import static junit.framework.Assert.assertEquals;
 
-class SushiTest {
+public class SushiTest {
 
     @Test
-    void shouldCalculateSushiCookingTime() {
+    public void shouldCalculateSushiCookingTime() {
         Sushi sushi = new Sushi();
 
         assertEquals(45, sushi.calculateEstimatedCookingTime(1D));
