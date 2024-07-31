@@ -1,12 +1,10 @@
 package gof.design.patterns.gof.prototype.cars;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
-
-public class VehiclePrototypeFactoryTest {
+class VehiclePrototypeFactoryTest {
 
     private static final String CAR_NUMBER = "333 NT 98";
     private static final String CAR_COLOR = "Red";
@@ -16,26 +14,29 @@ public class VehiclePrototypeFactoryTest {
     private static final String TRUCK_COLOR = "Blue";
 
     @Test
-    public void shouldGenerateVehicles() throws CloneNotSupportedException {
+    void shouldGenerateVehicles() throws CloneNotSupportedException {
 
         var car = VehiclePrototypeFactory.createVehicle(VehicleType.CAR);
-        assertTrue(car instanceof Vehicle && ((Vehicle) car).getType() == VehicleType.CAR);
         car.setNumber(CAR_NUMBER);
         car.setColor(CAR_COLOR);
+        assertInstanceOf(Vehicle.class, car);
+        assertSame(VehicleType.CAR, car.getType());
         assertEquals(CAR_NUMBER, car.getNumber());
         assertEquals(CAR_COLOR, car.getColor());
 
         var minivan = VehiclePrototypeFactory.createVehicle(VehicleType.MINIVAN);
-        assertTrue(minivan instanceof Vehicle && ((Vehicle) minivan).getType() == VehicleType.MINIVAN);
         minivan.setNumber(MINIVAN_NUMBER);
         minivan.setColor(MINIVAN_COLOR);
+        assertInstanceOf(Vehicle.class, minivan);
+        assertSame(VehicleType.MINIVAN, minivan.getType());
         assertEquals(MINIVAN_NUMBER, minivan.getNumber());
         assertEquals(MINIVAN_COLOR, minivan.getColor());
 
         var truck = VehiclePrototypeFactory.createVehicle(VehicleType.TRUCK);
-        assertTrue(truck instanceof Vehicle && ((Vehicle) truck).getType() == VehicleType.TRUCK);
         truck.setNumber(TRUCK_NUMBER);
         truck.setColor(TRUCK_COLOR);
+        assertInstanceOf(Vehicle.class, truck);
+        assertSame(VehicleType.TRUCK, truck.getType());
         assertEquals(TRUCK_NUMBER, truck.getNumber());
         assertEquals(TRUCK_COLOR, truck.getColor());
     }

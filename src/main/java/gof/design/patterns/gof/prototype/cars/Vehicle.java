@@ -39,7 +39,6 @@ public class Vehicle implements VehiclePrototype {
 
     @Override
     public VehiclePrototype clone() throws CloneNotSupportedException {
-        Vehicle clonnedVehicle = (Vehicle) super.clone();
         return (VehiclePrototype) super.clone();
     }
 

@@ -3,14 +3,14 @@ package gof.design.patterns.gof.abstractfactory.cafe;
 import gof.design.patterns.gof.abstractfactory.dishes.CuisineType;
 import gof.design.patterns.gof.abstractfactory.dishes.ItalianComboMeal;
 import gof.design.patterns.gof.abstractfactory.dishes.Meal;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static junit.framework.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class ItalianCuisineFactoryTest {
+class ItalianCuisineFactoryTest {
 
     @Test
-    public void shouldCreateItalianComboMeal() {
+    void shouldCreateItalianComboMeal() {
         NationalCuisineAbstractFactory italianMenu = CafeFactoryProducer.getNationalCuisineFactory(CuisineType.ITALIAN);
         Meal italianMeal = italianMenu.cookComboMeal();
         assertEquals(ItalianComboMeal.class, italianMeal.getClass());

@@ -1,13 +1,13 @@
 package gof.design.patterns.gof.prototype.cars;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class VehicleTest {
+class VehicleTest {
 
     @Test
-    public void shouldCreateVehicle() {
+    void shouldCreateVehicle() {
         var car = new Vehicle(VehicleType.CAR, "red", "123 VN 09");
         var minivan = new Vehicle(VehicleType.MINIVAN, "red", "123 VN 09");
         var truck = new Vehicle(VehicleType.TRUCK, "red", "123 VN 09");

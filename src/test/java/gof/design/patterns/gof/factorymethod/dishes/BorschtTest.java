@@ -1,16 +1,17 @@
 package gof.design.patterns.gof.factorymethod.dishes;
 
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.time.LocalDateTime;
 
-import static junit.framework.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class BorschtTest {
+
+class BorschtTest {
 
     @Test
-    public void shouldCalculateBorschtCookingTime() {
+    void shouldCalculateBorschtCookingTime() {
         Borscht borscht = new Borscht();
 
         assertEquals(120, borscht.calculateEstimatedCookingTime(1D));

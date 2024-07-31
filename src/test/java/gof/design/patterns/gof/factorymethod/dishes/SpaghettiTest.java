@@ -1,16 +1,16 @@
 package gof.design.patterns.gof.factorymethod.dishes;
 
-
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.time.LocalDateTime;
 
-import static junit.framework.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class SpaghettiTest {
+
+class SpaghettiTest {
 
     @Test
-    public void shouldCalculateSpaghettiCookingTime() {
+    void shouldCalculateSpaghettiCookingTime() {
         Spaghetti spaghetti = new Spaghetti();
 
         assertEquals(20, spaghetti.calculateEstimatedCookingTime(1D));

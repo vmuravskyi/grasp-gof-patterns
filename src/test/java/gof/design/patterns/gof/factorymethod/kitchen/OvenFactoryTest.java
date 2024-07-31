@@ -1,14 +1,14 @@
 package gof.design.patterns.gof.factorymethod.kitchen;
 
 import gof.design.patterns.gof.factorymethod.dishes.*;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import static junit.framework.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class OvenFactoryTest {
+class OvenFactoryTest {
 
     @Test
-    public void shouldCreateNationalDishes() {
+    void shouldCreateNationalDishes() {
         Dish ukrainianDish = OvenFactory.createDish(CuisineType.UKRAINIAN, 1.5D);
         assertEquals(Borscht.class, ukrainianDish.getClass());
 

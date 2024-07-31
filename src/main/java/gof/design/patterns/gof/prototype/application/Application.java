@@ -1,4 +1,4 @@
-package gof.design.patterns.gof.prototype;
+package gof.design.patterns.gof.prototype.application;
 
 import gof.design.patterns.gof.prototype.cars.VehiclePrototypeFactory;
 import gof.design.patterns.gof.prototype.cars.VehicleType;
