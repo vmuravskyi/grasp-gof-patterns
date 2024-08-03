@@ -22,9 +22,6 @@ class PizzaTest {
         assertEquals(0, smallPizza.getPineappleQuantity());
         assertEquals(0, smallPizza.getSeafoodQuantity());
         assertEquals(0, smallPizza.getMushroomQuantity());
-
-        RuntimeException up = new RuntimeException("feel better");
-        throw up;
     }
 
 }
