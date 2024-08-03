@@ -1,0 +1,24 @@
+package gof.design.patterns.gof.foxminded.factorymethod.dishes;
+
+import gof.design.patterns.gof.foxminded.factorymethod.dishes.Spaghetti;
+import org.junit.jupiter.api.Test;
+
+import java.time.LocalDateTime;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+
+class SpaghettiTest {
+
+    @Test
+    void shouldCalculateSpaghettiCookingTime() {
+        Spaghetti spaghetti = new Spaghetti();
+
+        assertEquals(20, spaghetti.calculateEstimatedCookingTime(1D));
+        assertEquals(
+                LocalDateTime.of(2024, 1, 1, 12, 20),
+                spaghetti.calculateReadyTime(LocalDateTime.of(2024, 1, 1, 12, 0))
+        );
+    }
+
+}
